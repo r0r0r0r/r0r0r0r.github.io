@@ -360,11 +360,11 @@
             </div>
 
             <!-- Featured Case Study: Lead Gen -->
-            <div class="glass-card rounded-2xl border border-slate-700 overflow-hidden mb-16 reveal">
+            <div class="glass-card rounded-2xl border border-slate-700 overflow-hidden mb-12 reveal">
                 <div class="grid lg:grid-cols-2">
                     <!-- Content Side -->
                     <div class="p-8 md:p-12 flex flex-col justify-center">
-                        <div class="inline-block px-3 py-1 rounded bg-brand-accent/20 text-brand-accent text-xs font-bold tracking-widest mb-4 w-max">AUTOMATION SYSTEM</div>
+                        <div class="inline-block px-3 py-1 rounded bg-brand-accent/20 text-brand-accent text-xs font-bold tracking-widest mb-4 w-max">FEATURED SYSTEM</div>
                         <h3 class="text-3xl font-bold text-white mb-2">AI-Powered Lead Generation Engine</h3>
                         <p class="text-slate-400 mb-8">Automating the extraction, enrichment, and personalization of cold leads using n8n & OpenAI.</p>
                         
@@ -423,6 +423,47 @@
                                 <p>> Leads pushed to CRM successfully.</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary Case Studies Grid -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Case Study 2: Invoicing -->
+                <div class="glass-card rounded-xl border border-slate-700 p-8 reveal group hover:bg-slate-800/50 transition-colors">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-lg flex items-center justify-center text-2xl">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-600 rounded text-[10px] font-bold uppercase text-slate-400">Finance</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-brand-primary transition-colors">Automated Invoice Processing</h3>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        <strong>Problem:</strong> Client was manually typing data from PDF invoices into Xero, leading to errors and late payments.<br><br>
+                        <strong>Solution:</strong> Built a system using OpenAI Vision API to extract data from PDFs and auto-sync to Xero via Zapier.
+                    </p>
+                    <div class="border-t border-slate-700 pt-4 flex gap-2 text-xs text-slate-500 font-mono">
+                        <span><i class="fas fa-check text-green-500 mr-1"></i> 100% Accuracy</span>
+                        <span><i class="fas fa-check text-green-500 mr-1"></i> 0 Manual Work</span>
+                    </div>
+                </div>
+
+                <!-- Case Study 3: Support Bot -->
+                <div class="glass-card rounded-xl border border-slate-700 p-8 reveal group hover:bg-slate-800/50 transition-colors" style="transition-delay: 100ms;">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-purple-500/20 text-purple-400 rounded-lg flex items-center justify-center text-2xl">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-600 rounded text-[10px] font-bold uppercase text-slate-400">Support</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-brand-accent transition-colors">24/7 Customer Support AI</h3>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        <strong>Problem:</strong> E-commerce store was losing sales on weekends due to slow support response times.<br><br>
+                        <strong>Solution:</strong> Deployed a custom chatbot trained on their Notion knowledge base that answers 80% of queries instantly.
+                    </p>
+                    <div class="border-t border-slate-700 pt-4 flex gap-2 text-xs text-slate-500 font-mono">
+                        <span><i class="fas fa-check text-green-500 mr-1"></i> Instant Replies</span>
+                        <span><i class="fas fa-check text-green-500 mr-1"></i> +30% Sales</span>
                     </div>
                 </div>
             </div>
@@ -530,7 +571,7 @@
     <!-- Footer -->
     <footer class="bg-slate-950 py-12 border-t border-slate-800 text-sm">
         <div class="container mx-auto px-6">
-            <!-- Changed: Replaced justify-between with justify-center and added gap-12 to bring elements closer -->
+            <!-- Socials Row -->
             <div class="flex flex-col md:flex-row justify-center items-center gap-12 mb-8">
                 <div class="text-white font-bold text-lg">Look<span class="text-brand-primary">After</span>.</div>
                 <div class="flex gap-6">
@@ -541,16 +582,52 @@
                 </div>
             </div>
             
-            <!-- Copyright Section -->
+            <!-- Copyright & Legal -->
             <div class="flex flex-col md:flex-row justify-center items-center gap-6 border-t border-slate-800 pt-8 text-slate-500 text-xs">
                 <div>© 2024 LookAfter. All rights reserved.</div>
                 <div class="flex gap-6">
-                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <button onclick="toggleModal('privacy-modal')" class="hover:text-white transition-colors">Privacy Policy</button>
+                    <button onclick="toggleModal('terms-modal')" class="hover:text-white transition-colors">Terms of Service</button>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- LEGAL MODALS -->
+    <!-- Privacy Modal -->
+    <div id="privacy-modal" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="toggleModal('privacy-modal')"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl p-4">
+            <div class="bg-slate-900 border border-slate-700 rounded-xl p-8 shadow-2xl relative max-h-[80vh] overflow-y-auto">
+                <button onclick="toggleModal('privacy-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i class="fas fa-times text-xl"></i></button>
+                <h3 class="text-2xl font-bold text-white mb-6">Privacy Policy</h3>
+                <div class="space-y-4 text-slate-400 text-sm">
+                    <p><strong>1. Introduction</strong><br>Welcome to LookAfter. We respect your privacy and are committed to protecting your personal data.</p>
+                    <p><strong>2. Data We Collect</strong><br>We may collect personal identification information (Name, email address, etc.) only when you voluntarily submit it via our contact forms.</p>
+                    <p><strong>3. How We Use Data</strong><br>We use your data to provide automation services, process your audit requests, and communicate with you.</p>
+                    <p><strong>4. Data Security</strong><br>We implement security measures to maintain the safety of your personal information. We do not sell your data to third parties.</p>
+                    <p class="italic text-xs mt-4">Last Updated: October 2024</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div id="terms-modal" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="toggleModal('terms-modal')"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl p-4">
+            <div class="bg-slate-900 border border-slate-700 rounded-xl p-8 shadow-2xl relative max-h-[80vh] overflow-y-auto">
+                <button onclick="toggleModal('terms-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i class="fas fa-times text-xl"></i></button>
+                <h3 class="text-2xl font-bold text-white mb-6">Terms of Service</h3>
+                <div class="space-y-4 text-slate-400 text-sm">
+                    <p><strong>1. Agreement</strong><br>By accessing this website, you agree to be bound by these Terms and Conditions.</p>
+                    <p><strong>2. Services</strong><br>LookAfter provides business automation consulting and development services. Specific deliverables are defined in individual client contracts.</p>
+                    <p><strong>3. Liability</strong><br>We are not liable for any damages arising from the use of our automation scripts once handed over, unless covered by a support agreement.</p>
+                    <p><strong>4. Intellectual Property</strong><br>Clients retain ownership of their data. Automation logic built specifically for a client is transferred upon payment.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Back to Top Button -->
     <a href="#home" id="back-to-top" class="fixed bottom-8 right-8 bg-brand-primary text-white p-4 rounded-full shadow-lg z-50 transition-all duration-300 opacity-0 translate-y-10 pointer-events-none hover:bg-blue-600">
@@ -559,6 +636,18 @@
 
     <!-- Interactive Scripts -->
     <script>
+        // Toggle Modal Function
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            } else {
+                modal.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        }
+
         // Mobile Menu Toggle
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
